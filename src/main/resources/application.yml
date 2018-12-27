@@ -1,5 +1,7 @@
 server:
   port: 8010
+
+
 #spring:
 #  jpa:
 #    generate-ddl: false
@@ -12,7 +14,8 @@ server:
 #    data: classpath:sql/data.sql
 
 logging:
-  level: info
+  level:
+    cn.harryai.microservicemovie.feign.UserFeignClient: debug
 #  config: classpath:log/logback.xml
 eureka:
   client:
@@ -21,4 +24,39 @@ eureka:
 spring:
   application:
     name: microservice-movie
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: full
+  compression:
+    request:
+      enabled: true
+      mime-types: texl/xml,application/xml,application/json
+      min-request-size: 2048
+    # 让代码配置优先级更高
+#    default-to-properties: false
+#指定名称feign的配置
+#feign:
+#  client:
+#    config:
+#      feignName:
+        # 相当于Request.Options
+#        connnectTimeout: 5000
+        # 相当于Request.Options
+#        readTimeout: 5000
+        # 配置feign的日志级别，相当于代码配置的Logger
+#        loggerLevel: full
+        # 错误解码器，相当于代码配置方式中的ErrorDecoder
+#        errorDecoder:
+        # 配置重试，相当于代码中的Retryer
+#        retryer:
+        # 配置拦截器，相当于代码配置方式中的RequestInterceptor
+#        requestInterceptors:
+#          - com.ex
+#          -
+#        decode404: false
 
+#feign通用配置
