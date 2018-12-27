@@ -36,6 +36,9 @@ feign:
       enabled: true
       mime-types: texl/xml,application/xml,application/json
       min-request-size: 2048
+  # 开启feign的 hystrix 支持
+  hystrix:
+      enabled: ture
     # 让代码配置优先级更高
 #    default-to-properties: false
 #指定名称feign的配置
@@ -60,3 +63,6 @@ feign:
 #        decode404: false
 
 #feign通用配置
+management:
+  security:
+    enabled: false

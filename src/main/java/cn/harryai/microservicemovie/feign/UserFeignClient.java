@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-@FeignClient(name = "microservice-user")
+@FeignClient(name = "microservice-user",fallbackFactory = UserFeignClientFallbackFactory.class)
 public interface UserFeignClient {
     @GetMapping("/{id}")
     User findById(@PathVariable("id") Long id);
