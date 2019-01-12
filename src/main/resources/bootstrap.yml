@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: microservice-movie
+  cloud:
+    config:
+      profile: dev
+      label: master
+      discovery:
+        service-id: MICROSERVER-CONFIG
+        enabled: true
+eureka:
+  client:
+    service-url:
+      defaultZone: ${EUREKA_URL:http://192.168.211.160:8762/eureka/,http://192.168.211.160:8761/eureka/}
